@@ -375,6 +375,20 @@ body {
 
 /* --- Naya Premium Popup Structure --- */
 
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* Isse piche ki website halki dikhegi */
+    background-color: rgba(0, 0, 0, 0.6); 
+    /* Premium glassy effect ke liye */
+    backdrop-filter: blur(5px); 
+}
+
 .modal-content {
     background: #151515;
     position: absolute;
