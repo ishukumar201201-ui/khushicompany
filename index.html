@@ -97,39 +97,43 @@
     </div>
 </div>
 
+
+
 <script>
-    // Direct Logic - Koi file ka tension nahi
+    // Variables ko sahi se pakadne ke liye
     const exploreBtn = document.getElementById("exploreBtn");
     const myModal = document.getElementById("welcomeModal");
-    const closeShopping = document.getElementById("modalClose");
+    const closeShopping = document.getElementById("modalClose"); // Start Shopping button ki ID
 
+    // 1. Explore button par click hone par popup khule
     if (exploreBtn) {
         exploreBtn.onclick = function(e) {
-            e.preventDefault(); // Rectangle aur default jump rokne ke liye
+            e.preventDefault(); 
             myModal.style.display = "block";
-            console.log("Popup Opening...");
         }
     }
 
-
-      if (closeShopping) {
+    // 2. Start Shopping par click hone par scroll ho (Yehi main hai!)
+    if (closeShopping) {
         closeShopping.onclick = function() {
-        // 1. Popup band karo
-         myModal.style.display = "none";
-        
-        // 2. Products section par le jao
-        const productsSection = document.querySelector('.products-section');
-        if (productsSection) {
-              productsSection.scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'start' 
-          });
+            // Pehle popup band karein
+            myModal.style.display = "none";
+            
+            // Phir Products section tak scroll karein
+            // Dhyan de: niche '.products-section' aapki class ka naam hai
+            const section = document.querySelector('.products-section');
+            if (section) {
+                section.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            } else {
+                console.log("Error: .products-section nahi mila!");
+            }
         }
-     };
- }
-    
+    }
 
-    // Bahar click karne par band ho jaye
+    // Modal ke bahar click karne par band ho jaye
     window.onclick = function(event) {
         if (event.target == myModal) {
             myModal.style.display = "none";
