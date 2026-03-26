@@ -464,3 +464,97 @@ body {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(255, 126, 95, 0.4);
 }
+
+
+/* Login Page Background */
+.login-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+}
+
+/* Glassy Card Effect */
+.login-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    padding: 50px 40px;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 126, 95, 0.2);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+}
+
+.brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.brand-name span { color: #ff7e5f; }
+
+/* Premium Input Fields */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: 0.4s;
+}
+
+.input-group input:focus {
+    border-color: #ff7e5f;
+    background: rgba(255, 126, 95, 0.05);
+    box-shadow: 0 0 20px rgba(255, 126, 95, 0.1);
+}
+
+/* --- THE ULTRA PREMIUM BUTTON --- */
+.btn-login-ultra {
+    position: relative;
+    width: 100%;
+    padding: 18px;
+    margin-top: 20px;
+    background: #ff7e5f;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-login-ultra:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 126, 95, 0.4);
+}
+
+/* Button ki shine effect */
+.btn-login-ultra::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(30deg);
+    transition: 0.7s;
+}
+
+.btn-login-ultra:hover::after {
+    left: 120%;
+}
