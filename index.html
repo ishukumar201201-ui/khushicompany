@@ -111,12 +111,23 @@
         }
     }
 
-    if (closeShopping) {
+
+      if (closeShopping) {
         closeShopping.onclick = function() {
-            myModal.style.display = "none";
-            document.querySelector('.products-section').scrollIntoView({ behavior: 'smooth' });
+        // 1. Popup band karo
+         myModal.style.display = "none";
+        
+        // 2. Products section par le jao
+        const productsSection = document.querySelector('.products-section');
+        if (productsSection) {
+              productsSection.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+          });
         }
-    }
+     };
+ }
+    
 
     // Bahar click karne par band ho jaye
     window.onclick = function(event) {
