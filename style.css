@@ -290,3 +290,44 @@ body {
     backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 5%;
+        flex-direction: column; /* Logo upar, links niche */
+        gap: 10px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        font-size: 14px;
+    }
+
+    .brand-name {
+        font-size: 18px; /* Choti screen par naam thoda chota */
+    }
+
+    .hero h1 {
+        font-size: 32px; /* Heading ko phone ke hisaab se set kiya */
+        padding: 0 10px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .cta-buttons {
+        flex-direction: column; /* Buttons ek ke niche ek aayenge */
+        width: 100%;
+        align-items: center;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 80%; /* Buttons pure phone screen par fit honge */
+    }
+
+    .features-grid {
+        flex-direction: column; /* Why choose us cards ek ke niche ek */
+    }
+}
