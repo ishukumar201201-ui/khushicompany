@@ -253,3 +253,17 @@ body {
 .footer-links a:hover { color: #007bff; }
 
 .copyright { color: #444; font-size: 12px; margin-top: 20px; }
+
+.site-logo {
+    height: 60px; /* Aap apne hisaab se height choti ya badi kar sakte hain */
+    width: auto;
+    display: block;
+    border-radius: 8px; /* Taaki logo ke corners sharp na lagein */
+    transition: 0.3s ease;
+}
+
+/* Jab koi logo par mouse le jaye (Premium effect) */
+.site-logo:hover {
+    filter: brightness(1.2); 
+    transform: scale(1.05);
+}
