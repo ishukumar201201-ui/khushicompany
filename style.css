@@ -254,16 +254,39 @@ body {
 
 .copyright { color: #444; font-size: 12px; margin-top: 20px; }
 
-.site-logo {
-    height: 60px; /* Aap apne hisaab se height choti ya badi kar sakte hain */
-    width: auto;
-    display: block;
-    border-radius: 8px; /* Taaki logo ke corners sharp na lagein */
-    transition: 0.3s ease;
+/* Brand Container Layout */
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Logo aur naam ke beech ki jagah */
 }
 
-/* Jab koi logo par mouse le jaye (Premium effect) */
-.site-logo:hover {
-    filter: brightness(1.2); 
-    transform: scale(1.05);
+.site-logo {
+    height: 50px; /* Logo ka size thoda bada kiya */
+    width: auto;
+    filter: drop-shadow(0 0 5px rgba(255, 126, 95, 0.3)); /* Halka sa glow */
+}
+
+.brand-name {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.brand-name span {
+    color: #ff7e5f; /* Aapke logo ka orange/coral shade */
+    font-weight: 300; /* Store word ko thoda light rakha premium look ke liye */
+}
+
+/* Navbar spacing adjustment */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 8%;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
