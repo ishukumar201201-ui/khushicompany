@@ -360,3 +360,45 @@ body {
     }
 }
 
+/* Modal Styling */
+.modal {
+    display: none; /* Pehle se chhupa rahega */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8); /* Dark Overlay */
+    backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    background: #151515;
+    margin: 15% auto;
+    padding: 40px;
+    border: 1px solid #ff7e5f; /* Logo wala color */
+    border-radius: 20px;
+    width: 80%;
+    max-width: 450px;
+    text-align: center;
+    position: relative;
+    animation: modalScale 0.4s ease-out;
+}
+
+@keyframes modalScale {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #888;
+}
+
+.modal-content h2 { margin-bottom: 15px; color: #ff7e5f; }
+
