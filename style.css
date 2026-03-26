@@ -373,70 +373,72 @@ body {
 }
 
 
-
-.modal-content h2 { margin-bottom: 15px; color: #ff7e5f; }
-
-button:focus {
-    outline: none;
-}
-
-/* Click karne par aane wala blue box hatane ke liye */
-#exploreBtn {
-    -webkit-tap-highlight-color: transparent; 
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-/* Learn More button ke liye bhi same cheez */
-.btn-secondary:focus {
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-/* Premium Typography */
-body {
-    font-family: 'Poppins', sans-serif;
-}
-
-h1, h2, .brand-name {
-    font-family: 'Playfair Display', serif;
-}
-
-/* Modal Content Fix */
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 9999; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.85); /* Thoda zyada dark premium look ke liye */
-    backdrop-filter: blur(8px);
-}
+/* --- Naya Premium Popup Structure --- */
 
 .modal-content {
-    background: #111;
+    background: #151515;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Magic line: Isse popup hamesha center rahega */
-    padding: 40px;
-    border: 1px solid #ff7e5f;
-    border-radius: 20px;
+    transform: translate(-50%, -50%); /* Perfect Center */
+    padding: 60px 40px; /* Bada padding for spacious feel */
+    border: 1.5px solid #ff7e5f;
+    border-radius: 30px; /* More rounded premium look */
     width: 90%;
-    max-width: 400px;
+    max-width: 480px; /* Pehle se kafi bada size */
     text-align: center;
-    box-shadow: 0 0 30px rgba(255, 126, 95, 0.3);
+    box-shadow: 0 25px 70px rgba(0,0,0,0.6), 0 0 30px rgba(255, 126, 95, 0.15);
 }
 
-/* Start Shopping Button specifically */
+/* --- Cross (❌) Button - Perfect Alignment --- */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px; /* Perfect corner placement */
+    font-size: 32px; /* Bigger ❌ */
+    color: #888;
+    cursor: pointer;
+    line-height: 1; /* Aligns with text */
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #ff7e5f;
+}
+
+/* --- Premium Typography (Alag lines ke liye) --- */
+
+/* Line 1: 'Welcome to...' - Royal (Playfair) */
+.modal-content h2 {
+    font-family: 'Playfair Display', serif; /* Agar yeh font linked nahi hai, toh link karein */
+    font-size: 30px; /* Bada Headline */
+    color: #ff7e5f;
+    margin-top: 0;
+    margin-bottom: 25px; /* Space niche text ke liye */
+    letter-spacing: 0.5px;
+}
+
+/* Line 2: 'Our Exclusive...' - Clean (Poppins/Montserrat) */
+.modal-content p {
+    font-family: 'Poppins', sans-serif; /* Agar linked nahi hai, link karein */
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.6;
+    margin-top: 0;
+    margin-bottom: 45px; /* Kafi space button ko niche karne ke liye */
+    font-weight: 300; /* Lighter look */
+}
+
+/* --- Start Shopping Button (Toda Niche) --- */
 #modalClose {
     width: 100%;
-    padding: 15px;
+    padding: 16px; /* Bada button */
+    font-family: 'Montserrat', sans-serif; /* Stronger Font for Button */
     font-weight: 600;
-    letter-spacing: 1px;
-    background: #ff7e5f; /* Logo matching color */
+    font-size: 16px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase; /* Modern look */
+    background: #ff7e5f; /* Logo color */
     border: none;
     border-radius: 50px;
     cursor: pointer;
