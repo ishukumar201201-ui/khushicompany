@@ -196,3 +196,60 @@ body {
     z-index: 1000; /* Sabse upar dikhega */
     /* Baaki purana code waise hi rahega */
 }
+
+/* Why Choose Us Styling */
+.features-section {
+    padding: 80px 10%;
+    background: #0d0d0d;
+    text-align: center;
+}
+
+.features-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+    flex: 1;
+}
+
+.feature-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: scale(1.05);
+}
+
+.feature-card .icon { font-size: 40px; margin-bottom: 20px; }
+
+/* Footer Styling */
+.premium-footer {
+    padding: 60px 10% 30px;
+    border-top: 1px solid #222;
+    background: #050505;
+    text-align: center;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover { color: #007bff; }
+
+.copyright { color: #444; font-size: 12px; margin-top: 20px; }
