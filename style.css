@@ -402,3 +402,19 @@ body {
 
 .modal-content h2 { margin-bottom: 15px; color: #ff7e5f; }
 
+button:focus {
+    outline: none;
+}
+
+/* Click karne par aane wala blue box hatane ke liye */
+#exploreBtn {
+    -webkit-tap-highlight-color: transparent; 
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Learn More button ke liye bhi same cheez */
+.btn-secondary:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}

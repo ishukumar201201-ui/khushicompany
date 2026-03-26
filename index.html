@@ -94,5 +94,34 @@
     </div>
 </div>
 
+<script>
+    // Direct Logic - Koi file ka tension nahi
+    const exploreBtn = document.getElementById("exploreBtn");
+    const myModal = document.getElementById("welcomeModal");
+    const closeShopping = document.getElementById("modalClose");
+
+    if (exploreBtn) {
+        exploreBtn.onclick = function(e) {
+            e.preventDefault(); // Rectangle aur default jump rokne ke liye
+            myModal.style.display = "block";
+            console.log("Popup Opening...");
+        }
+    }
+
+    if (closeShopping) {
+        closeShopping.onclick = function() {
+            myModal.style.display = "none";
+            document.querySelector('.products-section').scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // Bahar click karne par band ho jaye
+    window.onclick = function(event) {
+        if (event.target == myModal) {
+            myModal.style.display = "none";
+        }
+    }
+</script>
+
 </body>
 </html>
