@@ -291,43 +291,72 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Mobile Optimization */
-@media (max-width: 768px) {
+/* Mobile Optimization for Fashion Store */
+@media (max-width: 600px) {
+    /* Navbar fix */
     .navbar {
-        padding: 15px 5%;
-        flex-direction: column; /* Logo upar, links niche */
-        gap: 10px;
+        padding: 10px 15px;
+        flex-direction: column; /* Sab kuch center mein layout karega */
+        height: auto;
     }
 
-    .nav-links {
-        gap: 15px;
-        font-size: 14px;
+    .brand-container {
+        margin-bottom: 10px;
+    }
+
+    .site-logo {
+        height: 40px; /* Logo thoda chhota taki jagah bache */
     }
 
     .brand-name {
-        font-size: 18px; /* Choti screen par naam thoda chota */
+        font-size: 16px; /* Naam readable rahe par chhota */
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap; /* Links agar zyada hon toh niche wali line mein aa jayein */
+        justify-content: center;
+        gap: 10px;
+        padding: 0;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    /* Hero Section Fix */
+    .hero {
+        height: 70vh; /* Phone screen ke liye height kam ki */
+        padding: 20px;
     }
 
     .hero h1 {
-        font-size: 32px; /* Heading ko phone ke hisaab se set kiya */
-        padding: 0 10px;
+        font-size: 28px; /* Heading badi aur clear */
+        line-height: 1.3;
     }
 
     .hero p {
-        font-size: 16px;
+        font-size: 14px;
+        margin-top: 15px;
     }
 
+    /* Buttons Fix */
     .cta-buttons {
-        flex-direction: column; /* Buttons ek ke niche ek aayenge */
+        flex-direction: column;
         width: 100%;
-        align-items: center;
+        gap: 15px;
     }
 
     .btn-primary, .btn-secondary {
-        width: 80%; /* Buttons pure phone screen par fit honge */
+        width: 100%; /* Pure screen par fail jayenge, touch karne mein aasan */
+        padding: 15px;
     }
 
-    .features-grid {
-        flex-direction: column; /* Why choose us cards ek ke niche ek */
+    /* Grid Fix for Products and Features */
+    .product-grid, .features-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 }
+
