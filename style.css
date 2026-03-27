@@ -46,19 +46,35 @@ body {
     letter-spacing: 1px;
 }
 
+/* --- FIXED SEARCH BAR LAYOUT --- */
 .header-search {
     flex: 0 0 450px;
     position: relative;
-}
-
-.header-search input {
-    width: 100%;
-    padding: 12px 20px;
-    background: #111;
+    display: flex; /* Sabse Important: naya naya code added */
+    align-items: center; /* Icons ko input box ke beech mein late hain */
+    background: #111; /* Search background same rakho */
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 8px;
+    padding: 0 10px; /* Thoda gap side mein */
+}
+
+/* Search Input inside the container */
+.header-search input {
+    flex: 1; /* Input baaki jagah le lega */
+    padding: 12px 10px;
+    background: transparent; /* Piche ka background black rahega */
+    border: none; /* Bahar ka border fixed hai, andar ka nahi chahiye */
     color: #fff;
     outline: none;
+    font-size: 14px;
+}
+
+/* Search Icon inside the container */
+.search-icon {
+    font-size: 18px;
+    color: rgba(255,255,255,0.6);
+    cursor: pointer;
+    margin-left: 10px; /* Thoda side gap icon ke liye */
 }
 
 .header-actions {
