@@ -22,21 +22,101 @@ body {
     color: #ffffff;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 10%;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px); /* Glass effect */
+/* --- 1. PREMIUM HEADER (Black Theme) --- */
+.max-header {
+    background: #000; 
+    color: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.logo { font-size: 24px; font-weight: 700; letter-spacing: 2px; }
-.logo span { color: #007bff; } /* Accent Color */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
 
-.nav-links { list-style: none; display: flex; gap: 30px; }
-.nav-links a { text-decoration: none; color: #ccc; transition: 0.3s; }
-.nav-links a:hover { color: #fff; }
+.brand-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FF914D; /* Orange Logo */
+    letter-spacing: 1px;
+}
+
+.header-search {
+    flex: 0 0 450px;
+    position: relative;
+}
+
+.header-search input {
+    width: 100%;
+    padding: 12px 20px;
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    background: #FF914D;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* --- 2. CATEGORIES SECTION (White Theme for contrast) --- */
+.max-categories {
+    background-color: #ffffff;
+    padding: 25px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cat-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s;
+}
+
+.cat-item img {
+    width: 100px; /* Max style size */
+    height: 100px;
+    border-radius: 50%; /* Isse photo gol hogi */
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.cat-item:hover {
+    transform: translateY(-10px); /* Mouse le jane par upar uthega */
+}
+
+.cat-item span {
+    font-size: 14px;
+    font-weight: 600;
+}
 
 .hero {
     height: 80vh;
