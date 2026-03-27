@@ -783,3 +783,8 @@ body {
     bottom: 25%; right: 20%;
 }
 
+.search-icon {
+    line-height: 1; /* Isse icon line ke beech mein aa jayega */
+    display: flex;
+    align-items: center;
+}
