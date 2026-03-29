@@ -791,6 +791,8 @@ body {
 
 /* --- 2. PRODUCT CARDS FIX (Name and Price visibility) --- */
 .product-card {
+    display: flex;
+    flex-direction: column;
     background: #151515; /* Card black rahega */
     border-radius: 12px;
     overflow: hidden;
