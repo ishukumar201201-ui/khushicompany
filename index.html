@@ -31,7 +31,11 @@
 </header>
 <section class="main-slider">
     <div class="slider-item">
-        <img src="new-cat.jpg" alt="Premium Collection">
+        <picture>
+            <source media="(max-width: 600px)" srcset="high_res_banner_mobile.jpg">
+            <img src="new-cat.jpg" alt="Premium Collection" class="premium-image">
+        </picture>
+
         <div class="glass-card">
             <span>New Arrival 2026</span>
             <h1>ULTRA LUXURY <br> FASHION</h1>
@@ -40,7 +44,6 @@
         </div>
     </div>
 </section>
-
    <section class="max-categories">
     <div class="cat-container">
         <div class="cat-item">
