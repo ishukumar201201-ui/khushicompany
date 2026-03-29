@@ -8,47 +8,55 @@
 </head>
 <body style="background: #050505;">
 
-    <div class="cart-wrapper">
-        <div class="cart-items-section">
-            <h1 class="cart-title">Your Bag <span>(2 Items)</span></h1>
-            
-            <div class="cart-item-card">
-                <img src="women-cat.png" alt="Product">
-                <div class="cart-item-details">
-                    <h3>Royal Traditional Saree</h3>
-                    <p>Size: M | Color: Gold</p>
-                    <div class="qty-control">
-                        <button>-</button><span>1</span><button>+</button>
-                    </div>
-                </div>
-                <div class="cart-item-price">
-                    <p class="new-price">₹2,499</p>
-                    <button class="remove-item">Remove</button>
-                </div>
-            </div>
-            </div>
+    <script>
+    // 1. Product Data (Sabse alag details)
+    const products = {
+        'women': { name: 'Royal Traditional Saree', price: 2499, img: 'women-cat.png' },
+        'men': { name: 'Premium Cotton Shirt', price: 899, img: 'mens-cat.jpg' },
+        'kids': { name: 'Cool Kids Denim', price: 1200, img: 'kids-cat.png' }
+    };
 
-        <div class="cart-summary-section">
-            <div class="summary-card">
-                <h2>Order Summary</h2>
-                <div class="summary-line">
-                    <span>Subtotal</span>
-                    <span>₹2,499</span>
+    // 2. URL se pata karo kaun sa product hai
+    const urlParams = new URLSearchParams(window.location.search);
+    const productKey = urlParams.get('p') || 'women'; // Default women agar kuch na mile
+    const selectedProduct = products[productKey];
+
+    // 3. Page par details fill karo
+    document.querySelector('.cart-items-section').innerHTML = `
+        <h1 class="cart-title">Your Bag</h1>
+        <div class="cart-item-card">
+            <img src="${selectedProduct.img}" alt="Product">
+            <div class="cart-item-details">
+                <h3>${selectedProduct.name}</h3>
+                <p>Size: M | Color: Premium</p>
+                <div class="qty-control">
+                    <button onclick="updateQty(-1)">-</button>
+                    <span id="qty">1</span>
+                    <button onclick="updateQty(1)">+</button>
                 </div>
-                <div class="summary-line">
-                    <span>Shipping</span>
-                    <span style="color: #00ff00;">FREE</span>
-                </div>
-                <hr>
-                <div class="total-line">
-                    <span>Total</span>
-                    <span>₹2,499</span>
-                </div>
-                <button class="checkout-btn">PROCEED TO PAY</button>
-                <p class="secure-text">🔒 256-bit Secure Encryption</p>
+            </div>
+            <div class="cart-item-price">
+                <p class="new-price">₹${selectedProduct.price}</p>
             </div>
         </div>
-    </div>
+    `;
+
+    // Bill Summary update karne ke liye
+    function updateBill(qty) {
+        const total = selectedProduct.price * qty;
+        document.querySelector('.summary-line span:last-child').innerText = '₹' + total;
+        document.querySelector('.total-line span:last-child').innerText = '₹' + total;
+    }
+
+    function updateQty(change) {
+        let qtySpan = document.getElementById('qty');
+        let currentQty = parseInt(qtySpan.innerText);
+        currentQty += change;
+        if (currentQty < 1) currentQty = 1;
+        qtySpan.innerText = currentQty;
+        updateBill(currentQty);
+    }
+</script>
 
 </body>
 </html>
