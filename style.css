@@ -1070,3 +1070,19 @@ body {
 @media (max-width: 900px) {
     .cart-wrapper { flex-direction: column; }
 }
+
+/* --- HEADER ALIGNMENT FIX --- */
+.main-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 50px;
+    background: #000;
+    width: 100%;
+}
+
+.header-actions {
+    display: flex;
+    gap: 20px;
+    margin-left: auto; /* Ye buttons ko right mein bhej dega */
+}
