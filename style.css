@@ -23,7 +23,7 @@ body {
 }
 
 /* --- 1. PREMIUM HEADER (Black Theme) --- */
-.max-header {
+.main-header {
     background: #000; 
     color: #fff;
     padding: 15px 0;
@@ -46,49 +46,72 @@ body {
     letter-spacing: 1px;
 }
 
-/* --- FIXED SEARCH BAR LAYOUT --- */
-.header-search {
-    flex: 0 0 450px;
-    position: relative;
-    display: flex; /* Sabse Important: naya naya code added */
-    align-items: center; /* Icons ko input box ke beech mein late hain */
-    background: #111; /* Search background same rakho */
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 8px;
-    padding: 0 10px; /* Thoda gap side mein */
+/* --- PREMIUM HEADER FINAL FIX --- */
+.main-header {
+    background: #000; 
+    color: #fff;
+    padding: 15px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex;             /* Sab kuch ek line mein lane ke liye */
+    justify-content: space-between; /* Logo left, Buttons right */
+    align-items: center;       /* Sab kuch vertical center */
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* Search Input inside the container */
-.header-search input {
-    flex: 1; /* Input baaki jagah le lega */
-    padding: 12px 10px;
-    background: transparent; /* Piche ka background black rahega */
-    border: none; /* Bahar ka border fixed hai, andar ka nahi chahiye */
+/* 1. Logo Section */
+.logo {
+    flex: 0 0 auto; 
+}
+
+/* 2. Search Bar Section (Center mein lock karne ke liye) */
+.search-bar {
+    flex: 1;                  /* Beech ki khali jagah ye lega */
+    display: flex;
+    justify-content: center;  /* Input ko center mein rakhega */
+    padding: 0 30px;
+}
+
+.search-bar input {
+    width: 100%;
+    max-width: 500px;         /* Zyada lamba na ho */
+    padding: 12px 20px;
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 30px;
     color: #fff;
     outline: none;
-    font-size: 14px;
+    transition: 0.3s;
 }
 
-/* Search Icon inside the container */
-.search-icon {
-    font-size: 18px;
-    color: rgba(255,255,255,0.6);
-    cursor: pointer;
-    margin-left: 10px; /* Thoda side gap icon ke liye */
+.search-bar input:focus {
+    border-color: #FF914D;    /* Glow effect on click */
+    box-shadow: 0 0 10px rgba(255,145,77,0.2);
 }
 
+/* 3. Buttons Section (Right Side) */
 .header-actions {
     display: flex;
     gap: 15px;
+    flex: 0 0 auto;
 }
 
 .action-btn {
-    padding: 10px 20px;
+    padding: 10px 22px;
     background: #FF914D;
     color: #fff;
-    text-decoration: none;
+    border: none;
     border-radius: 8px;
     font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.action-btn:hover {
+    background: #e67e3a;
+    transform: translateY(-2px);
 }
 
 /* --- 2. CATEGORIES SECTION (Final premium fix) --- */
