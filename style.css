@@ -791,29 +791,34 @@ body {
 
 /* --- 2. PRODUCT CARDS FIX (Name and Price visibility) --- */
 .product-card {
-    display: flex;
-    flex-direction: column;
-    background: #151515; /* Card black rahega */
+    background: #151515;
     border-radius: 12px;
     overflow: hidden;
-    transition: 0.3s;
+    display: flex; 
+    flex-direction: column; /* Aapne jo line dali, wo sahi hai */
+    height: 100%; /* Card ko barabar rakhne ke liye */
     border: 1px solid #222;
-    position: relative; /* Naya added: layout fix ke liye */
 }
 
-/* Photo ko height fix karna zaruri hai */
+.product-img {
+    width: 100%;
+    height: 300px; /* Image ki height thodi kam ki hai taaki button niche space le sake */
+    overflow: hidden;
+}
+
 .product-img img {
     width: 100%;
-    height: 380px; /* Thoda zyada height, Max style */
+    height: 100%;
     object-fit: cover;
 }
 
-/* --- NEW: Text Niche Shift Fix --- */
 .product-info {
-    padding: 15px 20px; /* Thoda gap, Text white black par dikhega */
-    background: #000; /* Text background black, safety ke liye */
-    position: relative; /* Layout fixing */
-    z-index: 10;
+    padding: 20px;
+    background: #000;
+    flex-grow: 1; /* Ye line text ko bachi hui jagah degi */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Isse button apne aap ekdum niche chala jayega */
 }
 
 .product-info h3 {
