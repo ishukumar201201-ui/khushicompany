@@ -3,59 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Premium Cart | Khushi Fashion</title>
+    <title>Your Bag | Khushi Fashion Store</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body { background-color: #0a0a0a; color: white; font-family: 'Poppins', sans-serif; }
+        .cart-container { max-width: 1100px; margin: 50px auto; display: flex; gap: 30px; padding: 20px; }
+        .cart-items-section { flex: 2; background: #151515; padding: 25px; border-radius: 15px; border: 1px solid #222; }
+        .cart-item-card { display: flex; align-items: center; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid #333; }
+        .cart-item-card img { width: 120px; height: 150px; object-fit: cover; border-radius: 10px; }
+        .qty-control { display: flex; align-items: center; gap: 15px; margin-top: 15px; }
+        .qty-control button { background: #ff9800; border: none; color: white; width: 30px; height: 30px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .order-summary { flex: 1; background: #1a1a1a; padding: 25px; border-radius: 15px; height: fit-content; border: 1px solid #ff9800; }
+        .summary-line { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .total-line { font-size: 1.2rem; font-weight: bold; border-top: 1px solid #444; pt: 15px; color: #ff9800; }
+        .checkout-btn { width: 100%; padding: 15px; background: linear-gradient(45deg, #ff9800, #ff5722); border: none; color: white; border-radius: 10px; font-size: 1rem; cursor: pointer; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        .checkout-btn:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(255,152,0,0.4); }
+    </style>
 </head>
-<body style="background: #050505;">
+<body>
 
-    <script>
-    // 1. Product Data (Sabse alag details)
+<div class="cart-container">
+    <div class="cart-items-section" id="cart-display">
+        </div>
+
+    <div class="order-summary">
+        <h3>Order Summary</h3>
+        <hr style="border: 0.5px solid #333; margin-bottom: 20px;">
+        <div class="summary-line">
+            <span>Subtotal</span>
+            <span id="subtotal">₹0</span>
+        </div>
+        <div class="summary-line">
+            <span>Shipping</span>
+            <span style="color: #4caf50;">FREE</span>
+        </div>
+        <div class="summary-line total-line" style="margin-top: 20px; padding-top: 15px;">
+            <span>Total</span>
+            <span id="final-total">₹0</span>
+        </div>
+        <button class="checkout-btn" onclick="alert('Order Placed Successfully!')">PROCEED TO PAY</button>
+        <p style="font-size: 0.8rem; text-align: center; margin-top: 15px; color: #888;">🔒 256-bit Secure Encryption</p>
+    </div>
+</div>
+
+<script>
+    // 1. Data Database (Teeno products ki details)
     const products = {
         'women': { name: 'Royal Traditional Saree', price: 2499, img: 'women-cat.png' },
-        'men': { name: 'Premium Cotton Shirt', price: 899, img: 'mens-cat.jpg' },
+        'men': { name: 'Premium Cotton Shirt', price: 899, img: 'mens.cat.jpg' },
         'kids': { name: 'Cool Kids Denim', price: 1200, img: 'kids-cat.png' }
     };
 
-    // 2. URL se pata karo kaun sa product hai
-    const urlParams = new URLSearchParams(window.location.search);
-    const productKey = urlParams.get('p') || 'women'; // Default women agar kuch na mile
-    const selectedProduct = products[productKey];
+    // 2. URL se check karo kaunsa product hai
+    const params = new URLSearchParams(window.location.search);
+    const pKey = params.get('p') || 'women'; 
+    const item = products[pKey];
 
-    // 3. Page par details fill karo
-    document.querySelector('.cart-items-section').innerHTML = `
-        <h1 class="cart-title">Your Bag</h1>
+    // 3. UI update karein
+    const display = document.getElementById('cart-display');
+    display.innerHTML = `
+        <h1 style="margin-bottom: 20px;">Your Bag</h1>
         <div class="cart-item-card">
-            <img src="${selectedProduct.img}" alt="Product">
+            <img src="${item.img}" alt="${item.name}">
             <div class="cart-item-details">
-                <h3>${selectedProduct.name}</h3>
-                <p>Size: M | Color: Premium</p>
+                <h3>${item.name}</h3>
+                <p style="color: #888; font-size: 0.9rem;">Size: M | Color: Premium</p>
                 <div class="qty-control">
-                    <button onclick="updateQty(-1)">-</button>
-                    <span id="qty">1</span>
-                    <button onclick="updateQty(1)">+</button>
+                    <button onclick="changeQty(-1)">-</button>
+                    <span id="qty-val">1</span>
+                    <button onclick="changeQty(1)">+</button>
                 </div>
             </div>
-            <div class="cart-item-price">
-                <p class="new-price">₹${selectedProduct.price}</p>
+            <div style="margin-left: auto; text-align: right;">
+                <p style="font-size: 1.2rem; color: #ff9800; font-weight: bold;">₹${item.price}</p>
+                <p style="color: #ff4444; font-size: 0.8rem; cursor: pointer;" onclick="location.href='index.html'">Remove</p>
             </div>
         </div>
     `;
 
-    // Bill Summary update karne ke liye
-    function updateBill(qty) {
-        const total = selectedProduct.price * qty;
-        document.querySelector('.summary-line span:last-child').innerText = '₹' + total;
-        document.querySelector('.total-line span:last-child').innerText = '₹' + total;
+    // 4. Quantity aur Total Price change karne ka function
+    function updatePricing(q) {
+        const total = item.price * q;
+        document.getElementById('subtotal').innerText = '₹' + total.toLocaleString();
+        document.getElementById('final-total').innerText = '₹' + total.toLocaleString();
     }
 
-    function updateQty(change) {
-        let qtySpan = document.getElementById('qty');
-        let currentQty = parseInt(qtySpan.innerText);
-        currentQty += change;
-        if (currentQty < 1) currentQty = 1;
-        qtySpan.innerText = currentQty;
-        updateBill(currentQty);
+    function changeQty(amt) {
+        let qElement = document.getElementById('qty-val');
+        let currentQ = parseInt(qElement.innerText);
+        currentQ += amt;
+        if(currentQ < 1) currentQ = 1;
+        qElement.innerText = currentQ;
+        updatePricing(currentQ);
     }
+
+    // Initial price set karein
+    updatePricing(1);
 </script>
 
 </body>
