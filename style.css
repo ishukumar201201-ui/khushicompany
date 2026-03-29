@@ -789,85 +789,72 @@ body {
     align-items: center;
 }
 
-/* --- PRODUCTS GRID STYLING --- */
-.products-section {
-    padding: 60px 10px;
-    background: #0a0a0a; /* Deep black for premium look */
-    text-align: center;
-}
-
-.section-title {
-    color: #fff;
-    font-size: 32px;
-    margin-bottom: 40px;
-    letter-spacing: 2px;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
+/* --- 2. PRODUCT CARDS FIX (Name and Price visibility) --- */
 .product-card {
-    background: #151515;
-    border-radius: 15px;
+    background: #151515; /* Card black rahega */
+    border-radius: 12px;
     overflow: hidden;
-    transition: 0.3s ease;
+    transition: 0.3s;
     border: 1px solid #222;
+    position: relative; /* Naya added: layout fix ke liye */
 }
 
-.product-card:hover {
-    transform: translateY(-10px);
-    border-color: #FF914D; /* Orange glow on hover */
-}
-
+/* Photo ko height fix karna zaruri hai */
 .product-img img {
     width: 100%;
-    height: 350px;
+    height: 380px; /* Thoda zyada height, Max style */
     object-fit: cover;
 }
 
+/* --- NEW: Text Niche Shift Fix --- */
 .product-info {
-    padding: 20px;
+    padding: 15px 20px; /* Thoda gap, Text white black par dikhega */
+    background: #000; /* Text background black, safety ke liye */
+    position: relative; /* Layout fixing */
+    z-index: 10;
 }
 
 .product-info h3 {
-    color: #fff;
-    font-size: 18px;
-    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff; /* White title black background par saaf dikhega */
+    margin-bottom: 8px;
+    text-transform: capitalize;
 }
 
+/* Price Section Fix */
 .price {
-    color: #FF914D;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 800;
+    color: #FF914D; /* Logo Orange for Rupes */
+    display: flex; /* alignment fix */
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
 }
 
 .price span {
-    color: #666;
-    text-decoration: line-through;
     font-size: 14px;
-    margin-left: 10px;
+    color: rgba(255,255,255,0.5); /* Thoda feeka white purani price ke liye */
+    text-decoration: line-through; /* Cutting line */
 }
 
-/* --- ADD TO CART BUTTON --- */
+/* --- FIXED: Add to Cart Buttons in line --- */
 .add-to-cart {
+    display: block; /* Full width */
     width: 100%;
     padding: 12px;
-    background: #FF914D; /* Logo wala Orange */
+    background: #FF914D; /* Full Orange */
     color: #000;
     border: none;
     border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
+    margin-top: 5px; /* Button niche set */
     transition: 0.3s;
 }
 
 .add-to-cart:hover {
-    background: #fff;
-    transform: scale(1.02);
+    background: #fff; /* Safed hovering style */
+    color: #FF914D; /* Orange text on hover */
 }
