@@ -944,3 +944,129 @@ body {
     color: #444;
     font-size: 13px;
 }
+
+/* --- ULTRA PREMIUM CART PAGE DESIGN --- */
+.cart-wrapper {
+    display: flex;
+    max-width: 1200px;
+    margin: 50px auto;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.cart-items-section { flex: 2; }
+.cart-summary-section { flex: 1; }
+
+.cart-title {
+    color: #fff;
+    font-size: 32px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 15px;
+}
+
+.cart-title span { color: #888; font-size: 18px; }
+
+/* Item Card with Glass Effect */
+.cart-item-card {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid #222;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.cart-item-card:hover { border-color: #FF914D; }
+
+.cart-item-card img {
+    width: 120px;
+    height: 150px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.cart-item-details { flex-grow: 1; padding: 0 25px; }
+.cart-item-details h3 { color: #fff; margin-bottom: 10px; }
+.cart-item-details p { color: #666; font-size: 14px; }
+
+.qty-control {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.qty-control button {
+    background: #222;
+    color: #fff;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.new-price { color: #FF914D; font-size: 20px; font-weight: 800; }
+.remove-item {
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+/* Summary Card - The Ultra Look */
+.summary-card {
+    background: rgba(255, 145, 77, 0.05); /* Soft Orange tint */
+    border: 1px solid rgba(255, 145, 77, 0.2);
+    padding: 30px;
+    border-radius: 25px;
+    position: sticky;
+    top: 100px;
+}
+
+.summary-card h2 { color: #fff; margin-bottom: 25px; }
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 900;
+    margin: 20px 0;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 18px;
+    background: #FF914D;
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(255, 145, 77, 0.3);
+}
+
+.secure-text {
+    text-align: center;
+    color: #444;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+/* Responsive Fix */
+@media (max-width: 900px) {
+    .cart-wrapper { flex-direction: column; }
+}
