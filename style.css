@@ -1127,3 +1127,13 @@ body {
     gap: 20px;
     margin-left: auto; /* Ye buttons ko right mein bhej dega */
 }
+
+#dragon-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1; /* Ye saare buttons aur text ke piche rahega */
+    pointer-events: none; /* Isse buttons click karne mein problem nahi hogi */
+}

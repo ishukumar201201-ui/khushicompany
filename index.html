@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premium Khushi Fashion | Home</title>
@@ -49,6 +50,7 @@
         </div>
     </div>
 </section>
+<div id="dragon-container"></div>
 
 <section class="max-categories">
     <div class="cat-container">
@@ -213,7 +215,49 @@
         }
     `;
     document.head.appendChild(style);
+
+</script>
+
+<script>
+    // 1. Scene Setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // alpha: true se background transparent rahega
     
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById('dragon-container').appendChild(renderer.domElement);
+
+    // 2. 3D Shape (Abhi ke liye hum ek base shape bana rahe hain jise hum Dragon model se replace karenge)
+    const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16); // Ye ek complex 3D shape hai
+    const material = new THREE.MeshPhongMaterial({ 
+        color: 0xFF914D, // Aapka favorite orange color
+        shininess: 100,
+        wireframe: true // Isse technical/AI look aayega
+    });
+    const dragonShape = new THREE.Mesh(geometry, material);
+    scene.add(dragonShape);
+
+    // 3. Lights (3D ke liye roshni zaroori hai)
+    const light = new THREE.PointLight(0xffffff, 1, 100);
+    light.position.set(10, 10, 10);
+    scene.add(light);
+    scene.add(new THREE.AmbientLight(0x404040));
+
+    camera.position.z = 30;
+
+    // 4. Animation Loop (Ye coding se move karega)
+    function animate() {
+        requestAnimationFrame(animate);
+        
+        dragonShape.rotation.x += 0.01;
+        dragonShape.rotation.y += 0.01;
+        
+        // Hawa mein tairne wala effect
+        dragonShape.position.y = Math.sin(Date.now() * 0.002) * 2;
+        
+        renderer.render(scene, camera);
+    }
+    animate();
 </script>
 </body>
 </html>
