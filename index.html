@@ -13,6 +13,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <section class="code-3d-hero">
+    <div id="coding-dragon-canvas"></div>
+    
+    <div class="code-text-overlay">
+        <h1 class="glow-title">ULTRA LUXURY</h1>
+        <h2 class="dangerous-title">FASHION STORE</h2>
+        <p class="dangerous-p">Dangerous. Codable. 3D.</p>
+        <button class="action-btn">Explore Now</button>
+    </div>
+</section>
 
 <header class="main-header">
     <div class="logo">
@@ -34,6 +44,17 @@
         </a>
     </div>
 </header>
+
+<section class="code-3d-hero">
+    <div id="coding-dragon-canvas"></div>
+    
+    <div class="code-text-overlay">
+        <h1 class="glow-title">ULTRA LUXURY</h1>
+        <h2 class="dangerous-title">FASHION STORE</h2>
+        <p class="dangerous-p">Dangerous. Codable. 3D.</p>
+        <button class="action-btn">Explore Now</button>
+    </div>
+</section>
 
 <section class="main-slider">
     <div class="slider-item">
@@ -131,6 +152,16 @@
     </div>
 </div>
 
+<section class="code-3d-hero">
+    <div id="coding-dragon-canvas"></div>
+    
+    <div class="code-text-overlay">
+        <h1 class="glow-title">ULTRA LUXURY</h1>
+        <h2 class="dangerous-title">FASHION STORE</h2>
+        <p class="dangerous-p">Dangerous. Codable. 3D.</p>
+        <button class="action-btn">Explore Now</button>
+    </div>
+</section>
 
 
 <script>
@@ -218,7 +249,7 @@
 
 </script>
 
-<script>
+<script>scene.add(dragonBody); // Ye line likhna zaroori hai!
     // 1. Scene Setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -255,6 +286,69 @@
         // Hawa mein tairne wala effect
         dragonShape.position.y = Math.sin(Date.now() * 0.002) * 2;
         
+        renderer.render(scene, camera);
+    }
+    animate();
+</script>
+
+<section class="code-3d-hero">
+    <div id="coding-dragon-canvas"></div>
+    
+    <div class="code-text-overlay">
+        <h1 class="glow-title">ULTRA LUXURY</h1>
+        <h2 class="dangerous-title">FASHION STORE</h2>
+        <p class="dangerous-p">Dangerous. Codable. 3D.</p>
+        <button class="action-btn">Explore Now</button>
+    </div>
+</section>
+
+<script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById('coding-dragon-canvas').appendChild(renderer.domElement);
+
+    const pointLight = new THREE.PointLight(0x00ffff, 3);
+    pointLight.position.set(5, 5, 5);
+    scene.add(pointLight);
+
+    // Dragon Body (Coding se banaya hua)
+    const bodyGeo = new THREE.IcosahedronGeometry(5, 4);
+    const glowMaterial = new THREE.MeshPhongMaterial({ 
+        color: 0xffffff, 
+        emissive: 0x00ffff, 
+        wireframe: true 
+    });
+    const dragonBody = new THREE.Mesh(bodyGeo, glowMaterial);
+    scene.add(dragonBody);
+
+    // Wings Flapping Logic
+    function createWing(side) {
+        const wing = new THREE.Group();
+        const boneGeo = new THREE.CylinderGeometry(0.1, 0.1, 10, 8);
+        const bone = new THREE.Mesh(boneGeo, glowMaterial);
+        bone.rotation.z = Math.PI / 2;
+        wing.add(bone);
+        return wing;
+    }
+
+    const leftWing = createWing();
+    leftWing.position.set(-5, 2, 0);
+    dragonBody.add(leftWing);
+
+    const rightWing = createWing();
+    rightWing.position.set(5, 2, 0);
+    dragonBody.add(rightWing);
+
+    camera.position.z = 20;
+
+    function animate() {
+        requestAnimationFrame(animate);
+        const time = Date.now() * 0.002;
+        dragonBody.rotation.y += 0.01;
+        leftWing.rotation.y = Math.sin(time * 2) * 0.5;
+        rightWing.rotation.y = -Math.sin(time * 2) * 0.5;
         renderer.render(scene, camera);
     }
     animate();
