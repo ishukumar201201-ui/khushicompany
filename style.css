@@ -286,20 +286,23 @@ body {
     gap: 30px;
 }
 
+/* --- NAYA GLASS LOOK CARD --- */
 .product-card {
-    background: #151515;
-    padding: 30px;
-    border-radius: 20px;
-    transition: 0.5s ease;
-    border: 1px solid #222;
+    background: rgba(255, 255, 255, 0.7); /* Shishe jaisa look */
+    backdrop-filter: blur(15px); 
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05); 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
 }
 
 .product-card:hover {
-    transform: translateY(-10px);
-    border-color: #007bff;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 30px 60px rgba(130, 110, 255, 0.2); 
+    background: rgba(255, 255, 255, 0.9);
 }
-
 .product-img {
     height: 150px;
     background: linear-gradient(45deg, #222, #333);
@@ -313,11 +316,26 @@ body {
     background: rgba(255, 255, 255, 0.12); /* Thoda bright highlight */
 }
 
-.login-card .btn-primary {
-    width: 100%; /* Full width button zyada professional lagta hai login par */
-    font-size: 16px;
-    letter-spacing: 1px;
-    margin-top: 15px;
+/* --- PREMIUM GLOW BUTTONS --- */
+.action-btn, .add-to-cart, .login-card .btn-primary {
+    background: linear-gradient(135deg, #FF914D, #FF5733);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 10px 20px rgba(255, 145, 77, 0.3);
+    cursor: pointer;
+    transition: 0.3s ease;
+    width: 100%; /* Login page par button poora lamba dikhega */
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.action-btn:hover, .add-to-cart:hover, .login-card .btn-primary:hover {
+    box-shadow: 0 15px 30px rgba(255, 145, 77, 0.5);
+    transform: translateY(-3px) scale(1.02);
 }
 
 .navbar {
